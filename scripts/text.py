@@ -15,7 +15,7 @@ class Font(object):
         self.name = name
         self.size = size
         self.reset_colour(colour)
-        self.font = pygame.font.SysFont(name, size)
+        self.font = pygame.font.Font(name, size)
         # save font to list of all fonts
         self.all_fonts.append(self)
 
@@ -45,7 +45,7 @@ class Font(object):
         self.extra = extra
         # Go trhoguh all existing fonts and change their sizes accordingly
         for f in self.all_fonts:
-            f.font = pygame.font.SysFont(f.name, f.size + self.extra)
+            f.font = pygame.font.Font(f.name, f.size + self.extra)
 
     def change_text_brightness(self):
         # change font colors in dark mode. Verdana is used as the generic font
@@ -57,9 +57,9 @@ class Font(object):
 
 
 # F O N T S
-verdana = Font('verdana')
-verdana_black = Font('verdana', colour='black')
-verdana_red = Font('verdana', colour=(242, 52, 29))
-verdana_small = Font('verdana', 11)
-verdana_baby = Font('verdana', 11, (100, 100, 250))
-verdana_big = Font('verdana', 18)
+verdana = Font(None)
+verdana_black = Font(None, colour='black')
+verdana_red = Font(None, colour=(242, 52, 29))
+verdana_small = Font(None, 11)
+verdana_baby = Font(None, 11, (100, 100, 250))
+verdana_big = Font(None, 18)
